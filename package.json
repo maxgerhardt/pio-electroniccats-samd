@@ -1,0 +1,17 @@
+{
+  "name": "framework-arduino-samd",
+  "version": "2.0.0",
+  "description": "The Electroniccats SAMD core",
+  "keywords": [
+    "framework",
+    "arduino",
+    "microchip",
+    "samd"
+  ],
+  "homepage": "https://www.arduino.cc/reference/en",
+  "license": "LGPL-2.1-or-later",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ElectronicCats/Arduino_Boards_Index/tree/gh-pages/IDE_Board_Manager"
+  }
+}
