@@ -156,6 +156,15 @@ void SERCOM::enableUART()
   while(sercom->USART.SYNCBUSY.bit.ENABLE);
 }
 
+void SERCOM::disableUART()
+{
+  //Setting  the enable bit to 1
+  sercom->USART.CTRLA.bit.ENABLE = 0x0u;
+
+  //Wait for then enable bit from SYNCBUSY is equal to 0;
+  while(sercom->USART.SYNCBUSY.bit.ENABLE);
+}
+
 void SERCOM::flushUART()
 {
   // Skip checking transmission completion if data register is empty
@@ -198,6 +207,12 @@ bool SERCOM::isFrameErrorUART()
 {
   //FERR : Frame Error
   return sercom->USART.STATUS.bit.FERR;
+}
+
+void SERCOM::clearFrameErrorUART()
+{
+  // clear FERR bit writing 1 status bit
+  sercom->USART.STATUS.bit.FERR = 1;
 }
 
 bool SERCOM::isParityErrorUART()

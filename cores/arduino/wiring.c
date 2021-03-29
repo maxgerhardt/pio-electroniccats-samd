@@ -120,12 +120,16 @@ void init( void )
 #else
   #error "wiring.c: Unsupported chip"
 #endif
-
+  
+  // Defining VERY_LOW_POWER breaks Arduino APIs since all pins are considered INPUT at startup
+  // However, it really lowers the power consumption by a factor of 20 in low power mode (0.03mA vs 0.6mA)
+  #ifndef VERY_LOW_POWER
   // Setup all pins (digital and analog) in STARTUP mode (enable INEN and set default pull direction to pullup (pullup will not be enabled))
   for (uint32_t ul = 0 ; ul < NUM_DIGITAL_PINS ; ul++ )
   {
     pinMode( ul, PIO_STARTUP ) ;
   }
+  #endif
 
   // At least on the L21, pin A31 must be set as an input. It is possible that debugger probe detection is being falsely
   // detected (even with a pullup on A31 (SWCLK)), which would change the peripheral mux of A31 to COM.

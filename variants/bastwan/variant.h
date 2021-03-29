@@ -23,8 +23,8 @@
  * See README.md for documentation and pin mapping information
  */
 
-#ifndef _VARIANT_MATTAIRTECH_XENO_
-#define _VARIANT_MATTAIRTECH_XENO_
+#ifndef _VARIANT_ELECTRONICCATS_BASTWAN_
+#define _VARIANT_ELECTRONICCATS_BASTWAN_
 
 /* The definitions here need the MattairTech SAMD core >=1.6.8.
  * The format is different than the stock Arduino SAMD core,
@@ -129,14 +129,15 @@ extern "C"
 #define PIN_LED              PIN_LED_13
 #define LED_BUILTIN          PIN_LED_13
 
-#define RFM_RST              (31u)
+#define RFM_RST              (33u)
 #define RFM_DIO0             (34u)
 #define RFM_DIO1             (35u)
 #define RFM_DIO2             (36u)
 #define RFM_DIO3             (37u)
 #define RFM_DIO4             (38u)
 #define RFM_DIO5             (39u)
-#define RFM_TCXO             (40u)
+#define RFM_RFSW_ON          (12u)
+#define RFM_TCX_ON           (40u)
 #define RFM_SWITCH           (41u)
 
 // On-board SPI Flash

@@ -45,10 +45,12 @@ int main( void )
   USBDevice.attach();
 #endif
   #if (SAMR34)
-  //Init Osiclator
-  pinMode(RFM_TCXO, OUTPUT);
-  //Enable Oscilator
-  digitalWrite(RFM_TCXO, HIGH);
+  //Init Osiclator and Rf switch
+  pinMode(RFM_TCX_ON, OUTPUT);
+  pinMode(RFM_RFSW_ON, OUTPUT);
+  //Enable Oscilator and Rf switch
+  digitalWrite(RFM_TCX_ON, HIGH);
+  digitalWrite(RFM_RFSW_ON, HIGH);
   delay(1);
   #endif 
   setup();

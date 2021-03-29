@@ -1,7 +1,30 @@
-SerialGSM	KEYWORD1
-INPUT_PULLDOWN	LITERAL1	Constants	RESERVED_WORD_2
-RFM_RST	    LITERAL1
+
+#######################################
+# Syntax Coloring Map
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+MD_AButton	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+setKeyId	KEYWORD2
+setDetectTime	KEYWORD2
+setRepeatTime	KEYWORD2
+getKey	KEYWORD2
+
+######################################
+# Constants (LITERAL1)
+#######################################
+SS	LITERAL1
+RFM_TCX_ON	LITERAL1
+RFM_RFSW_ON	LITERAL1
+RFM_SWITCH	LITERAL1
+RFM_RST	LITERAL1
 RFM_DIO0	LITERAL1
 RFM_DIO1	LITERAL1
-RFM_DIO2	LITERAL1
 RFM_DIO5	LITERAL1

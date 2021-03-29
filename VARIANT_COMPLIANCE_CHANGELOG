@@ -1,0 +1,72 @@
+## What's New - Beta Version (2.0.00-beta)
+
+**2.0.0-beta-b1 (Jul 14, 2020):**
+
+* Added support for SAMR34
+* Added support for Electronic Cats Boards
+* Remove Mattairtech Boards
+* Update with Arduino Core official fix
+* Remove menu for SPI, Serial and I2C interfaces
+* Thanks Mattairtech!
+
+## What's New - Beta Version (1.6.18-beta)
+**Beta builds are now included in the main json. See Beta Builds section.**
+
+**1.6.18-beta-b1 (June 26, 2018):**
+* Added support for 20 different timer PWM frequencies selectable through the Tools menu, as well as other various clock system changes
+* Added support for the hardware FPU of the D51
+* Added optional support for single precision floating point numbers (in addition to the existing support for doubles) in both the Print and String classes, configurable from the Tools menu. This can save a great deal of code space. Thanks to Soren Kuula and Dmitry Xmelkov for their previous work.
+* Added support for 64-bit integer types to the Print class (long long and unsigned long long)
+* Added optional support for printing floating point numbers using the Print class with values greater/less than +/-4,294,967,295. It now supports +/-18,446,744,073,709,551,615.
+* Made various changes to reduce code size, including making ADC and DAC initialization optional if unused, using VARIANT_MCK instead of SystemCoreClock in init(), and converting some RMW's to writes. Added config.h file for configuration.
+* Added an additional PinDescription table format, which can be used to reduce code size (D11 chips only for now)
+* Added BATTERY_CHARGER_INSTALLED, IMU_INSTALLED, and VIN_5V_REGULATOR_INSTALLED defines to variants/Xeno_Mini/variant.c (and variant.h) to prevent associated pins from being configured as outputs, thus avoiding contention.
+* Fixed bad first read from analogRead() after changing references by using a dummy read.
+* Documentation updates, including new PinDescription table format
+* Beta builds will now be included in the main release json file
+
+**1.6.18-beta-b0 (February 22, 2018):**
+* Added SAM D51 (m4f) support to core
+* Added MattairTech Xeno Mini board support
+* Changed name to "MattairTech SAM D|L|C core for Arduino"
+* Added _ulTickCountHighWord to delay() to better handle 49.7-day wraparound
+* Updated timeout in [Bossa](https://github.com/mattairtech/BOSSA) tool for D51 1MB FLASH (5 second erase)
+* Correction of include path for CMSIS-Atmel - Thanks @joseangeljimenez
+* Documentation updates
+* Merged in changes from upstream SAMD CORE 1.6.18 (not released yet)
+  * Don't reallocate USB buffers if already allocated - fixes memory leak
+  * Wire: Added support for general call (broadcast)
+  * SPI: Added SPI.notUsingInterrupt(...) API
+  * Wire: TX and RX buffers are now 256 bytes (previously was 64 bytes)
+  * Fixed lock ups when outputting to UART during ISR
+  * Wire: correct I2C frequency calculations, and allow variant to overide default pull up resistor rise time
+* Merged in changes from upstream SAMD CORE 1.6.17
+  * UART's now support optional RTS and CTS pins defined in the variant.
+
+**1.6.17 (February 22, 2018):**
+* Added SAM D51 (m4f) support to bootloader
+* Added Generic D11D14AS (20-pin SOIC) variant
+* Made PIN_USB_HOST_ENABLE optional. Readme updates for MT-D11 and Generic D11C14A
+* Fixed USB pad calibration values for L21 in bootloader and USB host mode
+* Improve accuracy of HS crystal (fixed off-by-one calculation)
+* fixed wrong location for call to mapResolution(), doc updates
+* Documentation updates
+* Merged in changes from upstream SAMD CORE 1.6.17 (not released yet)
+  * Improved ISR response time. Thanks @joverbee
+  * No fixed value for USB power current.
+
+**1.6.17-beta-b0:**
+*Beta version 1.6.17-beta-b0 became release version 1.6.17. See above*
+
+**1.6.16-beta-b0:**
+* Added MattairTech Xeno support (64-pin D21, L21, and C21)
+* Changed version numbering to match Arduino SAMD core to indicate which upstream changes have been merged in.
+  * Release version 1.6.7 then skips to 1.6.16. Beta version 1.6.8-beta-b2 skips to 1.6.16-beta-b0.
+* Merged in changes from upstream SAMD CORE 1.6.16 2017.08.23:
+  * PWMs now can perform real 16-bit resolution if analogWriteResolution(16) is set. Thanks @Adminius
+  * USB CDC: fixed issue of available() getting stuck when receiving ZLP's
+  * Serial (UART) tx is now buffered.
+  * Updated Stream and Print class
+  * Native USB now supports USB Serial Number
+  * Fixed pgm_read_ptr compatibility macro. Thanks @nkrkv
+* Documentation updates

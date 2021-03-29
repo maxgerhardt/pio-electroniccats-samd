@@ -163,6 +163,7 @@ class SERCOM
 		bool availableDataUART( void ) ;
 		bool isBufferOverflowErrorUART( void ) ;
 		bool isFrameErrorUART( void ) ;
+		void clearFrameErrorUART( void ) ;
 		bool isParityErrorUART( void ) ;
 		bool isDataRegisterEmptyUART( void ) ;
 		uint8_t readDataUART( void ) ;
@@ -171,6 +172,7 @@ class SERCOM
 		void acknowledgeUARTError() ;
 		void enableDataRegisterEmptyInterruptUART();
 		void disableDataRegisterEmptyInterruptUART();
+		void disableUART( void );
 
 		/* ========== SPI ========== */
 		void initSPI(SercomSpiTXPad mosi, SercomRXPad miso, SercomSpiCharSize charSize, SercomDataOrder dataOrder) ;
@@ -220,6 +222,7 @@ class SERCOM
 		uint32_t calculateBaudrateSynchronous(uint32_t baudrate) ;
 		uint32_t division(uint32_t dividend, uint32_t divisor) ;
 		void initClockNVIC( void ) ;
+		friend class ArduinoLowPowerClass ;
 };
 
 #endif

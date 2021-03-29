@@ -47,12 +47,6 @@ SPIClass::SPIClass(SERCOM *p_sercom, uint8_t uc_pinMISO, uint8_t uc_pinSCK, uint
 void SPIClass::begin()
 {
   init();
-  //uint32_t peripheral = (_p_sercom == &sercom4) ? PIO_SERCOM_RF : PIO_SERCOM;
-  // PIO init
-  //pinPeripheral(_uc_pinMiso, PIO_SERCOM);
-  //pinPeripheral(_uc_pinSCK, PIO_SERCOM);
-  //pinPeripheral(_uc_pinMosi, PIO_SERCOM);
-  
   pinPeripheral(_uc_pinMiso, g_APinDescription[_uc_pinMiso].ulPinType);
   pinPeripheral(_uc_pinSCK, g_APinDescription[_uc_pinSCK].ulPinType);
   pinPeripheral(_uc_pinMosi, g_APinDescription[_uc_pinMosi].ulPinType);
